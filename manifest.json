@@ -18,7 +18,7 @@
   
   "content_scripts": [
     {
-      "matches": ["https://*.wiktionary.org/wiki/*"],
+      "matches": ["https:\/\/.+\.wiktionary\.org\/wiki\/[^\:]+"],
       "js": ["content-script.js"]
     }
   ]
