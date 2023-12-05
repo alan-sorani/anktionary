@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Anktionary",
+  "version": "1.0",
+
+  "description": "Adds a toolbar and buttons to add and edit Wiktionary data on Anki.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/main/beastify",
+  "icons": {
+    "48": "icons/anktionary-48.jpeg",
+    "96": "icons/anktionary-96.jpeg"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://*.wiktionary.org/wiki/*"],
+      "js": ["content_scripts/anktionary.js"]
+    }
+  ],
+  
+  "permissions": ["activeTab", "notifications"]
+}
+
