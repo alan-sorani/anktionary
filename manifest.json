@@ -1,25 +1,26 @@
 {
 
   "manifest_version": 2,
-  "name": "Anktionary",
-  "description": "Manage cards matching data from Wiktionary.",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "homepage_url": "https://github.com/alan-sorani/anktionary",
   "icons": {
-    "48": "icons/anktionary-48.jpeg",
-    "96" : "icons/anktionary-96.jpeg"
+    "48": "icons/anktionary-48.jpeg"
   },
 
   "permissions": ["notifications"],
 
   "background": {
-    "scripts": ["background-script.js"]
+    "scripts": ["background-script.js", "tabs"]
   },
   
   "content_scripts": [
     {
-      "matches": ["https:\/\/.+\.wiktionary\.org\/wiki\/[^\:]+"],
+      "matches": ["<all_urls>"],
       "js": ["content-script.js"]
     }
-  ]
+  ],
+  
+  "default_locale": "en"
 }
