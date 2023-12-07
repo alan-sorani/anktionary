@@ -19,3 +19,6 @@ function notify(message) {
 Assign `notify()` as a listener to messages from the content script.
 */
 browser.runtime.onMessage.addListener(notify);
+
+// Insert CSS for custom buttons
+browser.tabs.insertCSS({file: "anki-buttons.css"});

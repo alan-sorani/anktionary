@@ -9,10 +9,10 @@
     "48": "icons/anktionary-48.jpeg"
   },
 
-  "permissions": ["notifications"],
+  "permissions": ["notifications", "activeTab", "tabs"],
 
   "background": {
-    "scripts": ["background-script.js", "tabs"]
+    "scripts": ["background-script.js"]
   },
   
   "content_scripts": [
