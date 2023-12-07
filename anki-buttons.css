@@ -1,0 +1,63 @@
+.mw-ankibutton {
+  border-radius: 15px;
+  background-color: #292929;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 7px;
+  padding: 10px;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 2px;
+  background-repeat: no-repeat;
+}
+
+.mw-ankibutton.add {
+  background-image: url(assets/add_sign.png);
+}
+
+.mw-ankibutton.remove {
+  background-image: url(assets/remove_sign.png);
+}
+
+.mw-ankibutton:hover {
+  width: 120px;
+}
+
+.mw-ankibutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.mw-ankibutton span:after {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 90px;
+}
+
+.mw-ankibutton.add span:after {
+  content: 'Add to Anki';
+}
+
+.mw-ankibutton.remove span:after {
+  content: 'Remove from Anki';
+}
+
+
+.mw-ankibutton.add:hover span {
+  padding-right: 60px;
+}
+
+.mw-ankibutton.remove:hover span {
+  padding-right: 80px;
+}
+
+.mw-ankibutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}

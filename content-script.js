@@ -16,13 +16,9 @@ function notifyExtension(e) {
       button_span.appendChild(button)
       button.appendChild(button_text)
       
-      header
-      .appendChild(button_span)
+      header.appendChild(button_span)
     }
   }
-
-  console.log("content script sending message");
-  browser.runtime.sendMessage({"url": output});
 }
 
 /*
