@@ -16,16 +16,36 @@ if (matchURL(url)) {
 
   for (header of language_headers){
     if (header.innerHTML != "Contents" && header.innerHTML != "Navigation menu"){
-      //create button for adding data to Anki
+      // Create button for adding data to Anki
+      
+      /*
+      const outerButtonSpan = document.createElement("span");
+      outerButtonSpan.setAttribute("style", "padding-left:17px; display:inline-block;");
+      const button = document.createElement("button")
+      button.setAttribute(class, "mw-ankibutton add");
+      const innerButtonSpan = document.createElement("span");
+      const buttonText = document.createTextNode("&nbsp");
+      
+      // Append the button to the DOM node
+      
+      outerButtonSpan.appendChild(button);
+      button.appendChild(innerButtonSpan);
+      innerButtonSpan.appendChild(buttonText);
+      header.appendChild(outerButtonSpan);
+      */
+      
+      // doesn't seem to work with CSS
       const button_span = document.createElement("span");
       button_span.setAttribute("class", "mw-ankibutton");
-      button_span.setAttribute("style", "padding-left:17px; display:inline-block;");
       const button = document.createElement("button");
-      const button_text = document.createTextNode("Add to Anki");
+      button.setAttribute("class", "ankibutton");
+      const innerSpan = document.createElement("span");
+      const button_text = document.createTextNode(" ");
 
       //append the button to the DOM node
       button_span.appendChild(button);
-      button.appendChild(button_text);
+      button.appendChild(innerSpan);
+      innerSpan.appendChild(button_text);
       header.appendChild(button_span);
     }
   }
