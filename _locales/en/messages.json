@@ -9,19 +9,13 @@
     "description": "Description of the extension."
   },
 
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
+  "addButtonText": {
+    "message": "Add to Anki",
+    "description": "Title of the buttons for adding data to Anki."
   },
-
-  "notificationContent": {
-    "message": "You clicked $URL$.",
-    "description": "Tells the user which link they clicked.",
-    "placeholders": {
-      "url" : {
-        "content" : "$1",
-        "example" : "https://developer.mozilla.org"
-      }
-    }
+  
+  "removeButtonText": {
+    "message": "Remove from Anki",
+    "description": "Title of the buttons for removing data from Anki."
   }
 }
