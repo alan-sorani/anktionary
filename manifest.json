@@ -19,7 +19,7 @@
     {
       "matches": ["https://*.wiktionary.org/*"],
       "js": ["content-script.js"],
-      "css": ["anki-buttons.css"]
+      "css": ["anki-buttons-test.css"]
     }
   ],
   

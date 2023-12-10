@@ -38,9 +38,9 @@ if (matchURL(url)) {
       const button_span = document.createElement("span");
       button_span.setAttribute("class", "mw-ankibutton");
       const button = document.createElement("button");
-      button.setAttribute("class", "ankibutton");
+      button.setAttribute("class", "ankibutton add");
       const innerSpan = document.createElement("span");
-      const button_text = document.createTextNode(" ");
+      const button_text = document.createTextNode(String.fromCharCode(160));
 
       //append the button to the DOM node
       button_span.appendChild(button);
