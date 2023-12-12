@@ -9,10 +9,20 @@
     "48": "icons/anktionary-48.jpeg"
   },
 
-  "permissions": ["notifications", "activeTab"],
-
+  "permissions": ["tabs", "activeTab", "storage"],
+  
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "189f7d34-c1b5-4a31-ad4a-dbdb73375bb6"
+    }
+  },
+  
   "background": {
     "scripts": ["background-script.js"]
+  },
+  
+  "options_ui": {
+    "page": "options.html"
   },
   
   "content_scripts": [
