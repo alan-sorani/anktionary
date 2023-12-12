@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -11,11 +12,18 @@
 	</head>
 
 	<body>
-		<form>
-			<label>Border color <input type="text" id="color" name="color" /></label>
-			<button type="submit">Save</button>
-		</form>
-
+		<div id="form-container">
+			<form id="form">
+				<div id="tabs">
+					<ul>
+						<li id="tabAnkiDeck1"><a href="#ankiDeck1"><span id="ankiDeckName1">Anki Deck 1</span></a></li>
+						<li id="tabGeneral"><a href="#paneGeneral">General</a></li>
+						<li id="tabAbout"><a href="#paneAbout">About</a></li>
+					</ul>
+				</div>
+			</form>
+		</div>
+		
 		<script src="options.js"></script>
 	</body>
 </html>

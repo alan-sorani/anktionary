@@ -10,8 +10,8 @@
   border: none;
   color: #ffffff;
   text-align: center;
-  font-size: 7px;
-  padding: 10px;
+  font-size: 10px;
+  padding: 8px;
   width: 30px;
   height: 30px;
   background-size: 30px;
@@ -43,7 +43,7 @@
   position: absolute;
   opacity: 0;
   top: 0;
-  right: 90px;
+  right: 120px;
 }
 
 .ankibutton.add span::after {
@@ -56,11 +56,11 @@
 
 
 .ankibutton.add:hover span {
-  padding-right: 60px;
+  padding-right: 70px;
 }
 
 .ankibutton.remove:hover span {
-  padding-right: 80px;
+  padding-right: 90px;
 }
 
 .ankibutton:hover span::after {

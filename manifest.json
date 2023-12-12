@@ -30,7 +30,7 @@
     {
       "matches": ["https://*.wiktionary.org/*"],
       "js": ["content-script.js"],
-      "css": ["anki-buttons-test.css"]
+      "css": ["anki-buttons.css"]
     }
   ],
   
