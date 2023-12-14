@@ -29,7 +29,9 @@
   "content_scripts": [
     {
       "matches": ["https://*.wiktionary.org/*"],
-      "js": ["content-script.js"],
+      "js": [
+        "content-script.js"
+      ],
       "css": ["anki-buttons.css"]
     }
   ],
