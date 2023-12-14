@@ -1,9 +1,13 @@
-function exportUrl(shortenedUrl) {
-	return "https://en.wiktionary.org" + shortenedUrl;
-}
-
-function testShortenedUrl(url) {
-	return (url.startsWith("/"));
+function exportUrl(url) {
+	if(url.startsWith("//")){
+		return "https:" + url;
+	}
+	if(url.startsWith("/")){
+		pageUrl = window.location.href;
+		pageUrlPrefix = pageUrl.substring(0, str.indexOf("."));
+		return pageUrlPrefix + ".wiktionary.org" + url;	
+	}
+	return url;
 }
 
 function getEntryData(header) {
@@ -79,13 +83,13 @@ function addAnkiButtons() {
 	}
 }
 
-function matchURL(url) {
+function matchUrl(url) {
 	regex = new RegExp("^https:\/\/.+\.wiktionary\.org\/[^:]+$")
  	return regex.test(url)
 }
 
 // Get the URL of the active tab
-url = window.location.href;
-if (matchURL(url)) {
+pageUrl = window.location.href;
+if (matchUrl(pageUrl)) {
 	addAnkiButtons()
 }
