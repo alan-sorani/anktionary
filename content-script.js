@@ -20,7 +20,7 @@ function getEntryData(header) {
 function addEntry(header) {
 	entryData = getEntryData(header);
 	navigator.clipboard.writeText(entryData);
-	alert("Entry copied to clipboard.);
+	alert("Entry copied to clipboard.");
 }
 
 function removeEntry() {
