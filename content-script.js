@@ -1,14 +1,15 @@
-function addEntry() {
+function getEntryData(header) {
+	return "Entry data";
+}
 
-	navigator.clipboard.writeText("Entry data");
-	alert("Entry copied to clipboard");	
-	
+function addEntry(header) {
+	entryData = getEntryData(header);
+	navigator.clipboard.writeText(entryData);
+	alert("Entry copied to clipboard");
 }
 
 function removeEntry() {
-
 	alert("Entry removed from Anki");
-
 }
 
 function addAnkiButtons() {

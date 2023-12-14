@@ -1,40 +1,45 @@
 {
 
-  "manifest_version": 2,
-  "name": "__MSG_extensionName__",
-  "description": "__MSG_extensionDescription__",
-  "version": "1.0",
-  "homepage_url": "https://github.com/alan-sorani/anktionary",
-  "icons": {
-    "48": "icons/anktionary-48.jpeg"
-  },
+	"manifest_version": 2,
+	"name": "__MSG_extensionName__",
+	"description": "__MSG_extensionDescription__",
+	"version": "1.0",
+	"homepage_url": "https://github.com/alan-sorani/anktionary",
+	"icons": {
+		"48": "icons/anktionary-48.jpeg"
+	},
 
-  "permissions": ["tabs", "activeTab", "storage"],
+	"permissions": [
+		"tabs",
+		"activeTab",
+		"storage",
+		"downloads"
+	],
+	
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "{189f7d34-c1b5-4a31-ad4a-dbdb73375bb6}"
+		}
+	},
   
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{189f7d34-c1b5-4a31-ad4a-dbdb73375bb6}"
-    }
-  },
+	"background": {
+		"scripts": ["background-script.js"]
+	},
   
-  "background": {
-    "scripts": ["background-script.js"]
-  },
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": true
+	},
   
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true
-  },
+	"content_scripts": [
+		{
+			"matches": ["https://*.wiktionary.org/*"],
+			"js": [
+				"content-script.js"
+			],
+			"css": ["anki-buttons.css"]
+		}
+	],
   
-  "content_scripts": [
-    {
-      "matches": ["https://*.wiktionary.org/*"],
-      "js": [
-        "content-script.js"
-      ],
-      "css": ["anki-buttons.css"]
-    }
-  ],
-  
-  "default_locale": "en"
+	"default_locale": "en"
 }
