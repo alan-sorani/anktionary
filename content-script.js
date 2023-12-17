@@ -73,7 +73,7 @@ function addAnkiButtons() {
 }
 
 function matchUrl(url) {
-	regex = new RegExp("^https:\/\/.+\.wiktionary\.org\/[^:]+$")
+	regex = new RegExp("^https:\/\/.+\.wiktionary\.org\/wiki\/[^:\/]+$")
  	return regex.test(url)
 }
 
