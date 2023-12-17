@@ -1,19 +1,8 @@
-function exportUrl(url) {
-	if(url.startsWith("//")){
-		return "https:" + url;
-	}
-	if(url.startsWith("/")){
-		pageUrl = window.location.href;
-		pageUrlPrefix = pageUrl.substring(0, str.indexOf("."));
-		return pageUrlPrefix + ".wiktionary.org" + url;	
-	}
-	return url;
-}
-
 function getEntryData(header) {
 	let entryData = "";
 	htmlElement = header.nextElementSibling;
 	while(htmlElement != null && htmlElement.tagName != "H2"){
+		cleanDataSubtree(htmlElement);
 		entryData += htmlElement.outerHTML;
 		htmlElement = htmlElement.nextElementSibling;
 		entryData += "\n\n";
