@@ -49,28 +49,20 @@ function cleanUrlSubtree(element) {
 	exportSubtreeSrc(element);
 }
 
-function removeEmptyElement(element) {
+function removeExcludedClasses(element) {
 	elementClass = element.className;
-	if(elementClass == "mw-empty-elt") {
+	exludedClasses = ["mw-empty-elt", "mw-editsection"];
+	if(exludedClasses.includes(elementClass)) {
 		element.remove();
 	}
 }
 
-function cleanEmptyElementsSubtree(element) {
-	removeEmptyElements = recursify(removeEmptyElement);
-	removeEmptyElements(element);
+function cleanExcludedClassesSubtree(element) {
+	removeExcludedClassesRecursive = recursify(removeExcludedClasses);
+	removeExcludedClassesRecursive(element);
 }
 
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
-	cleanEmptyElementsSubtree(element);
-}
-
-function catify(element){
-	element.className = "CAT";
-}
-
-function recursifyTest(element){
-	func = recursify(catify);
-	func(element);
+	cleanExcludedClassesSubtree(element);
 }
