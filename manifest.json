@@ -37,6 +37,10 @@
 			"css": ["anki-buttons.css"]
 		}
 	],
+	
+	"background": {
+		"scripts": ["background-script.js"]		
+	},
   
 	"default_locale": "en"
 }
