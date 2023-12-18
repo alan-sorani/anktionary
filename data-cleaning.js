@@ -41,12 +41,42 @@ function exportSrc(element) {
 	element.setAttribute("src", exportedUrl);
 }
 
+function exportSrcSet(element) {
+	srcset = element.getAttribute("srcset");
+	if(srcset == null){
+		return;
+	}
+	sources = srcset.split(",");
+	exportedSrcSet = "";
+	for (source of sources){
+		params = source.split(" ");
+		// remove the fast element if it was the empty string following a comma
+		if ( params[0] == "" ){
+			params.shift();
+		}
+		// get the url and remove it from params
+		url = params.shift();
+		urlNew = exportUrl(url);
+		exportedSrcSet += urlNew + " ";
+		for (param of params) {
+			exportedSrcSet += param + " "; 
+		}
+		exportedSrcSet += ", "
+	}
+	// remove ending comma
+	indexLastComma = exportedSrcSet.length - 1
+	exportedSrcSet = exportedSrcSet.substring(0, indexLastComma - 1);
+	element.setAttribute("srcset", exportedSrcSet);
+}
+
 function cleanUrlSubtree(element) {
 	exportSubtreeHref = recursify(exportHref);
 	exportSubtreeSrc = recursify(exportSrc);
+	exportSubtreeSrcSet = recursify(exportSrcSet);
 	
 	exportSubtreeHref(element);
 	exportSubtreeSrc(element);
+	exportSubtreeSrcSet(element);
 }
 
 function removeExcludedClasses(element) {
