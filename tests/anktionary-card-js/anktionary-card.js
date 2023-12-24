@@ -25,18 +25,21 @@ function toggleSynonyms(synonymSpan){
 		return (
 			(element != null) &&
 			(element.tagName == "DL") &&
-			(element.firstChild.tagName == "DD") &&
-			(element.firstChild.firstChild.className == "nyms synonym")
+			(element.firstElementChild.tagName == "DD") &&
+			(element.firstElementChild.firstElementChild.className == "nyms synonym")
 		); 
 	}
 
 	synonymDl = findElementSibling(synonymSpan, condition);
+	
+	
 	if(synonymDl == null){
 		alert("Error. Couldn't find html object matching the given button.");
 		return;
 	}
-	synonymDd = synonymDl.firstChild;
-	synonymSpan = synonymDd.firstChild;
+	synonymDd = synonymDl.firstElementChild;
+	synonymSpan = synonymDd.firstElementChild;
+	
 	synonymStyle = synonymSpan.getAttribute("style");
 	if(synonymStyle == "display: none;"){
 		synonymSpan.setAttribute("style", "");
@@ -54,12 +57,11 @@ function toggleHypernyms(hypernymSpan){
 		if(element.tagName != "DL"){
 			return false;
 		}
-		child = element.childNodes[1];
-		alert(child);
+		child = element.children[1];
 		if(child == null || child.tagName != "DD"){
 			return false;
 		}
-		grandChild = child.firstChild;
+		grandChild = child.firstElementChild;
 		if(grandChild.className != "nyms hypernym")
 		{
 			return false;
@@ -72,8 +74,8 @@ function toggleHypernyms(hypernymSpan){
 		alert("Error. Couldn't find html object matching the given button.");
 		return;
 	}
-	hypernymDd = hypernymDl.firstChild;
-	hypernymSpan = hypernymDd.firstChild;
+	hypernymDd = hypernymDl.children[1];
+	hypernymSpan = hypernymDd.firstElementChild;
 	hypernymStyle = hypernymSpan.getAttribute("style");
 	if(hypernymStyle == "display: none;"){
 		hypernymSpan.setAttribute("style", "");
@@ -131,7 +133,7 @@ function addQuotationToggleFunctions(){
 
 function addToggleFunctions(){
 	addSynonymToggleFunctions();
-	//addHypernymToggleFunctions();
+	addHypernymToggleFunctions();
 	//addQuotationToggleFunctions();
 }
 
