@@ -1,0 +1,15 @@
+body {
+    font-family: arial;
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    background-color: white;
+}
+
+:is(.NavToggle,.HQToggle,.nyms-toggle)::before {
+    content: "[";
+}
+
+:is(.NavToggle,.HQToggle,.nyms-toggle)::after {
+    content: "]\00a0";
+}
