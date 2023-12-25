@@ -85,6 +85,26 @@ function toggleHypernyms(hypernymSpan){
 	}
 }
 
+function toggleQuotations(quotationSpan){
+	quotationUl = findElementSibling(
+		quotationSpan,
+		(element) => {
+			return element.tagName == "UL";
+		}
+	)
+	if(quotationUl == null){
+		alert("Error. Couldn't find html object matching the given button.");
+		return;
+	}
+	quotationStyle = quotationUl.getAttribute("style");
+	if(quotationStyle == "display: none;"){
+		quotationUl.setAttribute("style", "display: block");
+	}
+	else{
+		quotationUl.setAttribute("style", "display: none;");
+	}
+}
+
 
 function toggleArrow(string){
 	if(string.slice(-1) == "▼"){
@@ -105,6 +125,12 @@ function addHypernymToggleFunction(element){
 	element.innerHTML = toggleArrow(element.innerHTML);
 	hypernymSpan = element.parentElement;
 	toggleHypernyms(hypernymSpan);
+}
+
+function addQuotationToggleFunction(element){
+	element.innerHTML = toggleArrow(element.innerHTML);
+	quotationSpan = element.parentElement;
+	toggleQuotations(quotationSpan);
 }
 
 function addSynonymToggleFunctions(){
@@ -128,13 +154,16 @@ function addHypernymToggleFunctions(){
 }
 
 function addQuotationToggleFunctions(){
-
+	let matches = document.querySelectorAll(".HQToggle > a");
+	for (match of matches) {
+		match.setAttribute("onclick", "addQuotationToggleFunction(this)");
+	}
 }
 
 function addToggleFunctions(){
 	addSynonymToggleFunctions();
 	addHypernymToggleFunctions();
-	//addQuotationToggleFunctions();
+	addQuotationToggleFunctions();
 }
 
 addToggleFunctions();
