@@ -115,11 +115,26 @@ function styleTermLists(element) {
 	}
 	// alternatively, set background to a color matching light/dark mode
 	element.style.removeProperty('background-color');
+	element.style.setProperty('border-style', 'solid');
 }
 
 function cleanTermLists(element) {
-	cleanTermListsRecursive = recursify(cleanTermLists);
+	cleanTermListsRecursive = recursify(styleTermLists);
 	cleanTermListsRecursive(element);
+}
+
+function styleNavToggles(element) {
+	if(!element.classList.contains("NavToggle")){
+		return;
+	}
+	element.style.removeProperty('background-color');
+	const parent = element.parentElement;
+	parent.style.setProperty('text-align', 'center');
+}
+
+function cleanNavToggles(element) {
+	styleNavTogglesRecursive = recursify(styleNavToggles);
+	styleNavTogglesRecursive(element);
 }
 
 function cleanDataSubtree(element){
@@ -127,4 +142,5 @@ function cleanDataSubtree(element){
 	cleanExcludedClassesSubtree(element);
 	cleanWikipediaDivs(element);
 	cleanTermLists(element);
+	cleanNavToggles(element);
 }
