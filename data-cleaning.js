@@ -109,8 +109,22 @@ function cleanWikipediaDivs(element) {
 	styleWikipediaDivsRecursive(element);
 }
 
+function styleTermLists(element) {
+	if(!element.classList.contains("term-list")){
+		return;
+	}
+	// alternatively, set background to a color matching light/dark mode
+	element.style.removeProperty('background-color');
+}
+
+function cleanTermLists(element) {
+	cleanTermListsRecursive = recursify(cleanTermLists);
+	cleanTermListsRecursive(element);
+}
+
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);
 	cleanWikipediaDivs(element);
+	cleanTermLists(element);
 }
