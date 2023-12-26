@@ -1,0 +1,44 @@
+{{FrontSide}}
+
+<hr id=answer>
+
+{{Back}}
+
+<script>
+
+var files = [{
+    name: "Anktionary Card",
+    url: "_anktionary-card.js"
+}]
+
+function getAnkiPrefix() {
+    return globalThis.ankiPlatform === "desktop" ?
+        "" :
+        globalThis.AnkiDroidJS ?
+        "https://appassets.androidplatform.net" :
+        "."
+}
+
+if (!globalThis.ExternalScriptsLoaded) {
+    var promises = []
+    for (file of files) {
+        promises.push(loadScript(file))
+    }
+    Promise.all(promises).then(() => {
+        globalThis.ExternalScriptsLoaded = true
+    })
+}
+
+async function loadScript(file) {
+    var scriptPromise = import (`${getAnkiPrefix()}/${file.url}`)
+    scriptPromise.then(() => {
+            console.log(`Loaded ${file.name}.`)
+            if (file.init) file.init()
+            if (file.dependent) loadScript(file.dependent)
+        },
+        (error) => console.log(`An error occured while loading ${file.name}:`, error)
+    )
+    return scriptPromise
+}
+
+</script>
