@@ -8,7 +8,8 @@
 
 var files = [{
     name: "Anktionary Card",
-    url: "_anktionary-card.js"
+    url: "_anktionary-card.js",
+    init: addToggleFunctions
 }]
 
 function getAnkiPrefix() {

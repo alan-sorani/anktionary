@@ -1,16 +1,3 @@
-function recursify(func) {
-	function recursiveFunc(...arguments){
-		element = arguments[0];
-
-		func(element);
-		for (const child of element.children) {
-			recursiveFunc(child);
-		}
-	}
-	return recursiveFunc;
-}
-
-
 function findElementSibling(element, condition){
 	result = element;
 	while((condition(result) == false) && (result != null)) {
@@ -115,9 +102,21 @@ function toggleArrow(string){
 	}
 }
 
-function addSynonymToggleFunction(element){
-	element.innerHTML = toggleArrow(element.innerHTML);
-	synonymSpan = element.parentElement;
+// other functions added via onclick attribute
+
+function addSynonymToggleFunction(e){
+	let target = e.target;
+	while (target.tagName != "A" && target.parentNode != null) {
+		target = target.parentNode;
+	}
+	if (target.tagName != "A") {
+		alert("Error handling button press. Couldn't find element \
+		containing the button.")
+		return;
+	}
+
+	target.innerHTML = toggleArrow(target.innerHTML);
+	synonymSpan = target.parentElement;
 	toggleSynonyms(synonymSpan);
 }
 
@@ -139,7 +138,7 @@ function addSynonymToggleFunctions(){
 		if(match.innerHTML.slice(0,7) != "synonym"){
 			continue;
 		}
-		match.setAttribute("onclick", "addSynonymToggleFunction(this)");
+		match.addEventListener("click", addSynonymToggleFunction);
 	}
 }
 
