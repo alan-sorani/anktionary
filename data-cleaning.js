@@ -92,7 +92,25 @@ function cleanExcludedClassesSubtree(element) {
 	removeExcludedClassesRecursive(element);
 }
 
+function styleWikipediaDivs(element) {
+	if(!element.classList.contains("sister-wikipedia")){
+		return;
+	}
+	
+	element.style.float = "right";
+	element.style.removeProperty('background');
+	// alternatively, set background to a color matching light/dark mode
+	const interProjectSpan = element.querySelector(".interProject");
+	interProjectSpan.remove();
+}
+
+function cleanWikipediaDivs(element) {
+	styleWikipediaDivsRecursive = recursify(styleWikipediaDivs);
+	styleWikipediaDivsRecursive(element);
+}
+
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);
+	cleanWikipediaDivs(element);
 }
