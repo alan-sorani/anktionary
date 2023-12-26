@@ -116,8 +116,6 @@ function styleTermLists(element) {
 	// alternatively, set background to a color matching light/dark mode
 	element.style.removeProperty('background-color');
 	element.style.setProperty('border-style', 'solid');
-	const ulChild = element.querySelector("ul");
-	ulChild.style = "columns: 3; -webkit-columns: 3; -moz-columns: 3;";
 }
 
 function cleanTermLists(element) {
