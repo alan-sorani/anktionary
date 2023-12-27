@@ -116,6 +116,12 @@ function styleTermLists(element) {
 	// alternatively, set background to a color matching light/dark mode
 	element.style.removeProperty('background-color');
 	element.style.setProperty('border-style', 'solid');
+	
+	termUl = element.firstChild;
+	listItems = termUl.children;
+	for (item of listItems){
+		item.setAttribute("style", "");
+	}
 }
 
 function cleanTermLists(element) {
@@ -127,9 +133,12 @@ function styleNavToggles(element) {
 	if(!element.classList.contains("NavToggle")){
 		return;
 	}
+
 	element.style.removeProperty('background-color');
 	const parent = element.parentElement;
 	parent.style.setProperty('text-align', 'center');
+	const button = element.querySelector("a");
+	button.innerHTML = " show less ▼ ";
 }
 
 function cleanNavToggles(element) {

@@ -108,11 +108,11 @@ function toggleQuotations(quotationSpan){
 }
 
 function toggleTermListElement(element){
-	if(element.style.display == "none"){
-		element.style.display = "";
+	if(element.getAttribute("style") != "display: none;"){
+		element.setAttribute("style", "display: none;");
 		return;
 	}
-	element.style.display = "none";
+	element.setAttribute("style", "");
 }
 
 function toggleTermList(termListSpan){
@@ -121,9 +121,6 @@ function toggleTermList(termListSpan){
 	const listItems = termListUl.children;
 	const numItems = listItems.length;
 	const columnLength = Math.floor(numItems / termListColumns);
-	
-	alert(listItems.length);
-	alert(columnLength);
 	
 	for (const index in listItems) {
 		if(index % columnLength >= contractedListRows){
@@ -138,6 +135,15 @@ function toggleArrow(string){
 	}
 	else{
 		return string.replace("▲", "▼");
+	}
+}
+
+function toggleText(string){
+	if(string.includes("more")){
+		return string.replace("more", "less");
+	}
+	else{
+		return string.replace("less", "more");
 	}
 }
 
