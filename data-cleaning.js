@@ -97,8 +97,9 @@ function styleFloatDivs(element) {
 		return;
 	}
 	
-	element.style.float = "right";
+	element.style.setProperty("float", "right");
 	element.style.removeProperty('background');
+	element.style.setProperty("border", "1px solid #aaa");
 	// alternatively, set background to a color matching light/dark mode
 	const interProjectSpan = element.querySelector(".interProject");
 	if(interProjectSpan != null){
