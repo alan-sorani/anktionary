@@ -1,1 +1,1 @@
-{{Front}}
+<div id="front"> {{Front}} </div>
