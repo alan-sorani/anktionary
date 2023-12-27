@@ -245,6 +245,7 @@ function addTermListToggleFunctions(){
 	let matches = document.querySelectorAll(".list-switcher-element > .NavToggle > a");
 	for (const match of matches) {
 		match.addEventListener("click", handleTermListToggle);
+		match.click();
 	}
 }
 
