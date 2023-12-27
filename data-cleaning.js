@@ -138,7 +138,7 @@ function styleNavToggles(element) {
 	const parent = element.parentElement;
 	parent.style.setProperty('text-align', 'center');
 	const button = element.querySelector("a");
-	button.innerHTML = " show less ▼ ";
+	button.innerHTML = " show less ▲ ";
 }
 
 function cleanNavToggles(element) {

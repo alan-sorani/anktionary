@@ -206,7 +206,7 @@ function handleTermListToggle(e){
 		return;
 	}
 
-	target.innerHTML = toggleArrow(target.innerHTML);
+	target.innerHTML = toggleText(toggleArrow(target.innerHTML));
 	const termListSpan = target.parentElement;
 	toggleTermList(termListSpan);
 }
