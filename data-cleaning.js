@@ -163,6 +163,25 @@ function addFigureContainers() {
 	}
 }
 
+function addAudioButtons() {
+	const audioFiles = document.querySelectorAll(".audiofile");
+	for (const file of audioFiles){
+		const audioButton = document.createElement("audio");
+		audioButton.setAttribute("controls", "");
+		const audioSource = document.createElement("source");
+		audioSource.setAttribute("src", "https://samplelib.com/sample-mp3.html");
+		audioSource.setAttribute("type", "audio/mpeg");
+		audioButton.appendChild(audioSource);
+		const audioText = document.createTextNode(
+			"Your browser does not support the audio element."
+		);
+		audioButton.appendChild(audioText);
+		const parent = file.parentNode;
+		parent.replaceChild(audioButton, file);
+		file.remove();
+	}
+}
+
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);
