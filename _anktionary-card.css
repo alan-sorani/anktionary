@@ -21,15 +21,22 @@
 .fig-container {
 	float: right;
 	border: 1px solid;
+	margin: 20px;
+	padding: 0px;
+	clear: both;
+}
+
+.fig-inner-container {
+	border: 1px solid;
 	margin: 1px;
-	padding: 1px;
+	padding: 0px;
+	display: table;
 }
 
 .mw-default-size, .mw-halign-right {
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
-	float: right;
 	display: table;
 }
 

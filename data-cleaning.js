@@ -156,9 +156,12 @@ function addFigureContainer(element) {
 	}
 	const parent = element.parentElement;
 	const container = document.createElement("div");
+	const innerContainer = document.createElement("div");
 	container.className = "fig-container";
+	innerContainer.className = "fig-inner-container";
 	parent.replaceChild(container, element);
-	container.appendChild(element);
+	container.appendChild(innerContainer);
+	innerContainer.appendChild(element);
 }
 
 function addFigureContainers(element) {
