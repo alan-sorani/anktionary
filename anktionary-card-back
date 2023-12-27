@@ -2,14 +2,15 @@
 
 <hr id=answer>
 
-<div id="back"> {{Back}} </div>
+<div id="back">
+
+{{Back}}
 
 <script>
 
 var files = [{
     name: "Anktionary Card",
-    url: "_anktionary-card.js",
-    init: addToggleFunctions
+    url: "_anktionary-card.js"
 }]
 
 function getAnkiPrefix() {
@@ -43,4 +44,4 @@ async function loadScript(file) {
 }
 
 </script>
-
+</div>

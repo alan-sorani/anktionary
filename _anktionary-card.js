@@ -11,7 +11,10 @@ function findElementSibling(element, condition){
 	return result;
 }
 
-function addTermListColumns(){
+function setTermListColumns(numColumns){
+	if(numColumns == 1){
+		return;
+	}
 	const termLists = document.querySelectorAll(".term-list > ul");
 	for (const termList of termLists){
 		termList.style.setProperty("columns",termListColumns);
@@ -252,9 +255,6 @@ function addToggleFunctions(){
 	addTermListToggleFunctions();
 }
 
-if (termListColumns > 1) {
-	addTermListColumns();
-}
-
+setTermListColumns(termListColumns);
 addToggleFunctions();
 
