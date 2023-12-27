@@ -1,3 +1,8 @@
+//global variables
+const contractedListRows = 3;
+const isMobileDevice = (navigator.userAgent.indexOf("Mobile") > 0);
+const termListColumns = isMobileDevice ? 1 : 2;
+
 function findElementSibling(element, condition){
 	var result = element;
 	while((condition(result) == false) && (result != null)) {
@@ -6,6 +11,14 @@ function findElementSibling(element, condition){
 	return result;
 }
 
+function addTermListColumns(){
+	const termLists = document.querySelectorAll(".term-list > ul");
+	for (const termList of termLists){
+		termList.style.setProperty("columns",termListColumns);
+		termList.style.setProperty("-webkit-columns",termListColumns);
+		termList.style.setProperty("-moz-columns",termListColumns);
+	}
+}
 
 function toggleSynonyms(synonymSpan){
 	const condition = (element) => {
@@ -94,17 +107,41 @@ function toggleQuotations(quotationSpan){
 	}
 }
 
-
-function toggleArrow(string){
-	if(string.slice(-1) == "▼"){
-		return string.replace(/.$/, "▲");
+function toggleTermListElement(element){
+	if(element.style.display == "none"){
+		element.style.display = "";
+		return;
 	}
-	else{
-		return string.replace(/.$/, "▼");
+	element.style.display = "none";
+}
+
+function toggleTermList(termListSpan){
+	const termListDiv = termListSpan.parentElement.previousElementSibling;
+	const termListUl = termListDiv.firstElementChild;
+	const listItems = termListUl.children;
+	const numItems = listItems.length;
+	const columnLength = Math.floor(numItems / termListColumns);
+	
+	alert(listItems.length);
+	alert(columnLength);
+	
+	for (const index in listItems) {
+		if(index % columnLength >= contractedListRows){
+			toggleTermListElement(listItems[index]);
+		}
 	}
 }
 
-function addSynonymToggleFunction(e){
+function toggleArrow(string){
+	if(string.includes("▼")){
+		return string.replace("▼", "▲");
+	}
+	else{
+		return string.replace("▲", "▼");
+	}
+}
+
+function handleSynonymToggle(e){
 	var target = e.target;
 	while (target.tagName != "A" && target.parentNode != null) {
 		target = target.parentNode;
@@ -120,7 +157,7 @@ function addSynonymToggleFunction(e){
 	toggleSynonyms(synonymSpan);
 }
 
-function addHypernymToggleFunction(e){
+function handleHypernymToggle(e){
 	var target = e.target;
 	while (target.tagName != "A" && target.parentNode != null) {
 		target = target.parentNode;
@@ -136,7 +173,7 @@ function addHypernymToggleFunction(e){
 	toggleHypernyms(hypernymSpan);
 }
 
-function addQuotationToggleFunction(e){
+function handleQuotationToggle(e){
 	var target = e.target;
 	while (target.tagName != "A" && target.parentNode != null) {
 		target = target.parentNode;
@@ -152,13 +189,29 @@ function addQuotationToggleFunction(e){
 	toggleQuotations(quotationSpan);
 }
 
+function handleTermListToggle(e){
+	var target = e.target;
+	while (target.tagName != "A" && target.parentNode != null) {
+		target = target.parentNode;
+	}
+	if (target.tagName != "A") {
+		alert("Error handling button press. Couldn't find element \
+		containing the button.")
+		return;
+	}
+
+	target.innerHTML = toggleArrow(target.innerHTML);
+	const termListSpan = target.parentElement;
+	toggleTermList(termListSpan);
+}
+
 function addSynonymToggleFunctions(){
 	let matches = document.querySelectorAll(".nyms-toggle > a");
 	for (const match of matches) {
 		if(match.innerHTML.slice(0,7) != "synonym"){
 			continue;
 		}
-		match.addEventListener("click", addSynonymToggleFunction);
+		match.addEventListener("click", handleSynonymToggle);
 	}
 }
 
@@ -168,14 +221,21 @@ function addHypernymToggleFunctions(){
 		if(match.innerHTML.slice(0,8) != "hypernym"){
 			continue;
 		}
-		match.addEventListener("click", addHypernymToggleFunction);
+		match.addEventListener("click", handleHypernymToggle);
 	}
 }
 
 function addQuotationToggleFunctions(){
 	let matches = document.querySelectorAll(".HQToggle > a");
 	for (const match of matches) {
-		match.addEventListener("click", addQuotationToggleFunction);
+		match.addEventListener("click", handleQuotationToggle);
+	}
+}
+
+function addTermListToggleFunctions(){
+	let matches = document.querySelectorAll(".list-switcher-element > .NavToggle > a");
+	for (const match of matches) {
+		match.addEventListener("click", handleTermListToggle);
 	}
 }
 
@@ -183,6 +243,12 @@ function addToggleFunctions(){
 	addSynonymToggleFunctions();
 	addHypernymToggleFunctions();
 	addQuotationToggleFunctions();
+	addTermListToggleFunctions();
+}
+
+if (termListColumns > 1) {
+	addTermListColumns();
 }
 
 addToggleFunctions();
+
