@@ -92,8 +92,8 @@ function cleanExcludedClassesSubtree(element) {
 	removeExcludedClassesRecursive(element);
 }
 
-function styleWikipediaDivs(element) {
-	if(!element.classList.contains("sister-wikipedia")){
+function styleFloatDivs(element) {
+	if(!element.classList.contains("floatright") && !element.classList.contains("floatleft")){
 		return;
 	}
 	
@@ -101,12 +101,14 @@ function styleWikipediaDivs(element) {
 	element.style.removeProperty('background');
 	// alternatively, set background to a color matching light/dark mode
 	const interProjectSpan = element.querySelector(".interProject");
-	interProjectSpan.remove();
+	if(interProjectSpan != null){
+		interProjectSpan.remove();
+	}
 }
 
-function cleanWikipediaDivs(element) {
-	styleWikipediaDivsRecursive = recursify(styleWikipediaDivs);
-	styleWikipediaDivsRecursive(element);
+function cleanFloatDivs(element) {
+	styleFloatDivsRecursive = recursify(styleFloatDivs);
+	styleFloatDivsRecursive(element);
 }
 
 function styleTermLists(element) {
@@ -149,7 +151,7 @@ function cleanNavToggles(element) {
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);
-	cleanWikipediaDivs(element);
+	cleanFloatDivs(element);
 	cleanTermLists(element);
 	cleanNavToggles(element);
 }
