@@ -20,13 +20,14 @@
 
 .fig-container {
 	float: right;
-	background-color: #f9f9f9;
 	border: 1px solid;
+	margin: 1px;
+	padding: 1px;
 }
 
 .mw-default-size, .mw-halign-right {
-	margin: 1px;
-	padding: 1px;
+	margin: 0px;
+	padding: 0px;
 	text-align: center;
 	float: right;
 	display: table;

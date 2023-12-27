@@ -149,10 +149,28 @@ function cleanNavToggles(element) {
 	styleNavTogglesRecursive(element);
 }
 
+function addFigureContainer(element) {
+	if(!element.classList.contains("mw-default-size") &&
+	!element.classList.contains("mw-halign-right")){
+		return;
+	}
+	const parent = element.parentElement;
+	const container = document.createElement("div");
+	container.className = "fig-container";
+	parent.replaceChild(container, element);
+	container.appendChild(element);
+}
+
+function addFigureContainers(element) {
+	addFigureContainerRecursive = recursify(addFigureContainer);
+	addFigureContainerRecursive(element);
+}
+
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);
 	cleanFloatDivs(element);
 	cleanTermLists(element);
 	cleanNavToggles(element);
+	addFigureContainers(element);
 }
