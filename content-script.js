@@ -1,5 +1,6 @@
 function getEntryData(header) {
 	let entryData = "";
+	addFigureContainers();
 	htmlElement = header.nextElementSibling;
 	while(htmlElement != null && htmlElement.tagName != "H2"){
 		cleanDataSubtree(htmlElement);

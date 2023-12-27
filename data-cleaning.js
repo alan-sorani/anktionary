@@ -149,24 +149,18 @@ function cleanNavToggles(element) {
 	styleNavTogglesRecursive(element);
 }
 
-function addFigureContainer(element) {
-	if(!element.classList.contains("mw-default-size") &&
-	!element.classList.contains("mw-halign-right")){
-		return;
+function addFigureContainers() {
+	figures = document.querySelectorAll(".mw-default-size, .mw-halign-right")
+	for (figure of figures) {
+		const parent = figure.parentElement;
+		const container = document.createElement("div");
+		const innerContainer = document.createElement("div");
+		container.className = "fig-container";
+		innerContainer.className = "fig-inner-container";
+		parent.replaceChild(container, figure);
+		container.appendChild(innerContainer);
+		innerContainer.appendChild(figure);
 	}
-	const parent = element.parentElement;
-	const container = document.createElement("div");
-	const innerContainer = document.createElement("div");
-	container.className = "fig-container";
-	innerContainer.className = "fig-inner-container";
-	parent.replaceChild(container, element);
-	container.appendChild(innerContainer);
-	innerContainer.appendChild(element);
-}
-
-function addFigureContainers(element) {
-	addFigureContainerRecursive = recursify(addFigureContainer);
-	addFigureContainerRecursive(element);
 }
 
 function cleanDataSubtree(element){
@@ -175,5 +169,4 @@ function cleanDataSubtree(element){
 	cleanFloatDivs(element);
 	cleanTermLists(element);
 	cleanNavToggles(element);
-	addFigureContainers(element);
 }
