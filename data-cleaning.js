@@ -164,7 +164,7 @@ function addFigureContainers() {
 }
 
 function addAudioButtons() {
-	const audioFiles = document.querySelectorAll(".audiofile");
+	const audioFiles = document.querySelectorAll(".audiofile > span");
 	for (const file of audioFiles){
 		const audioButton = document.createElement("audio");
 		audioButton.setAttribute("controls", "");
