@@ -3,6 +3,7 @@ function getEntryData(header) {
 	addFigureContainers();
 	addAudioButtons();
 	removeAudioMeta();
+	removeTranslations();
 	htmlElement = header.nextElementSibling;
 	while(htmlElement != null && htmlElement.tagName != "H2"){
 		cleanDataSubtree(htmlElement);

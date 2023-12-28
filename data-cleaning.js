@@ -189,6 +189,23 @@ function removeAudioMeta() {
 	}
 }
 
+function removeTranslations() {
+	const headlines = document.querySelectorAll("h5 > .mw-headline");
+	for (headline of headlines){
+		if(headline.innerHTML != "Translations"){
+			continue;
+		}
+		const header = headline.parentNode;
+		var element = header.nextElementSibling;
+		header.remove();
+		while(!["H1", "H2", "H3", "H4", "H5", "H6"].includes(element.tagName)){
+			let temp = element;
+			element = element.nextElementSibling;
+			temp.remove();
+		}
+	}
+}
+
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);
