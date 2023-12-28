@@ -182,6 +182,13 @@ function addAudioButtons() {
 	}
 }
 
+function removeAudioMeta() {
+	const audioMetaElements = document.querySelectorAll(".audiometa");
+	for (const element of audioMetaElements){
+		element.remove();
+	}
+}
+
 function cleanDataSubtree(element){
 	cleanUrlSubtree(element);
 	cleanExcludedClassesSubtree(element);

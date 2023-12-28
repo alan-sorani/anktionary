@@ -2,6 +2,7 @@ function getEntryData(header) {
 	let entryData = "";
 	addFigureContainers();
 	addAudioButtons();
+	removeAudioMeta();
 	htmlElement = header.nextElementSibling;
 	while(htmlElement != null && htmlElement.tagName != "H2"){
 		cleanDataSubtree(htmlElement);
