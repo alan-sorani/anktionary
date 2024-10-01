@@ -34,11 +34,11 @@ function handleButtonClick(e) {
 		containing the button.")
 		return;
 	}
-	if (target.firstChild.className = "ankibutton add") {
+	if (target.firstChild.className == "ankibutton add") {
 		addEntry(target.parentNode);
 		return;
 	}
-	if (target.firstChild.className = "ankibutton remove") {
+	if (target.firstChild.className == "ankibutton remove") {
 		removeEntry(target.parentNode);
 		return;
 	}
