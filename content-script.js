@@ -17,7 +17,7 @@ function getEntryData(header) {
 function addEntry(header) {
 	entryData = getEntryData(header);
 	navigator.clipboard.writeText(entryData);
-	alert("Entry copied to clipboard.");
+	alert(entry_copied_msg);
 }
 
 function removeEntry() {
@@ -81,8 +81,18 @@ function matchUrl(url) {
  	return regex.test(url)
 }
 
-// Get the URL of the active tab
-pageUrl = window.location.href;
-if (matchUrl(pageUrl)) {
-	addAnkiButtons()
-}
+var entry_copied_msg;
+
+browser.runtime.sendMessage({
+	type: "get entry_copied_msg"
+}).then(function(message) {
+	entry_copied_msg = message.result;
+}).then(function(){
+	// Get the URL of the active tab
+	pageUrl = window.location.href;
+	if (matchUrl(pageUrl)) {
+
+		// Add Anki buttons.
+		addAnkiButtons();
+	}
+});

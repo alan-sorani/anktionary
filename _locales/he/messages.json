@@ -1,0 +1,27 @@
+{
+  "extensionName": {
+    "message": "Anktionary",
+    "description": "שם התוסף."
+  },
+
+  "extensionDescription": {
+    "message": "מנהל מידע מ־wiktionary בתוך אנקי.",
+    "description": "תיאור התוסף."
+  },
+
+  "addButtonText": {
+    "message": "הוסף לאנקי",
+    "description": "טקסט הכפתור עבור הוספת מידע לאנקי."
+  },
+  
+  "removeButtonText": {
+    "message": "הסר מאנקי",
+    "description": "טקסט הכפתור עבור הסרת מידע מאנקי."
+  },
+
+  "entryCopied": {
+	"message": "הערך הועתק לזכרון.",
+	"description": "הודעה על כך שהערך הועתק לזכרון."
+  }
+
+}

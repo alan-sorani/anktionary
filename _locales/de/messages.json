@@ -1,0 +1,27 @@
+{
+  "extensionName": {
+    "message": "Anktionary",
+    "description": "Name der Erweiterungen."
+  },
+
+  "extensionDescription": {
+    "message": "Verwaltet Daten von Wiktionary auf Anki.",
+    "description": "Beschreibung der Erweiterungen."
+  },
+
+  "addButtonText": {
+    "message": "Zu Anki hinzufügen",
+    "description": "Text der Schaltfläche zum Hinzufügen von Daten zu Anki.."
+  },
+  
+  "removeButtonText": {
+    "message": "Aus Anki entfernen",
+    "description": "Text der Schaltfläche zum Entfernen von Daten aus Anki.."
+  },
+
+  "entryCopied": {
+    "message": "Eintrag in die Zwischenablage kopiert.",
+	"description": "Eine Meldung, die Sie darüber informiert, dass der Eintrag in die Zwischenablage kopiert wurde."
+  }
+
+}

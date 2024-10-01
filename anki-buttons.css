@@ -19,6 +19,7 @@
   cursor: pointer;
   margin: 2px;
   background-repeat: no-repeat;
+  direction: "rtl";
 }
 
 .ankibutton.add {
@@ -27,10 +28,6 @@
 
 .ankibutton.remove {
   background-image: url('assets/remove_sign.png');
-}
-
-.ankibutton:hover {
-  width: 120px;
 }
 
 .ankibutton span {
@@ -46,12 +43,15 @@
   right: 120px;
 }
 
+.ankibutton:hover {
+	width: 120px;
+}
+
 .ankibutton.add span::after {
-  content: 'Add to Anki';
+	content: "__MSG_addButtonText__";
 }
 
 .ankibutton.remove span::after {
-  content: 'Remove from Anki';
 }
 
 
